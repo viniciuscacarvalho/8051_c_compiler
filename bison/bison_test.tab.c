@@ -1056,7 +1056,7 @@ yyreduce:
     {
   case 2: /* program: "identifier" "integer literal" "identifier"  */
 #line 21 "bison_test.y"
-                      {printf("IDENT NUMBER IDENT NUMBER\n");}
+                      {printf("IDENT NUMBER IDENT \n");}
 #line 1061 "bison_test.tab.c"
     break;
 
