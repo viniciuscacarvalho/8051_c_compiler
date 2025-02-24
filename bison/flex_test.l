@@ -46,6 +46,8 @@ _open_square    "["
 _close_square   "]"
 _open_curly     "{"
 _close_curly    "}"
+_semicolon      ";"
+_float_number  [0-9]*\.[0-9]+
 
 
 _digit          [0-9]
@@ -99,11 +101,11 @@ _white_space    [ \t]+
 {_close_square} {printf("%s ]\n", yytext);}
 {_open_curly}   {printf("%s {\n", yytext);}
 {_close_curly}  {printf("%s }\n", yytext);}
-
+{_semicolon}    {printf("%s ;\n",yytext);}
 
 {_number}       {return NUMBER;}
 {_letter}       {return LETTER;}
-{_indentifier}  {return IDENT;}
+{_indentifier}  {return ID;}
 {_white_space}
 {_newline}
 <<EOF>> {return 0;}
@@ -113,12 +115,4 @@ _white_space    [ \t]+
 
 int yywrap(){return 1;}
 
-int main(int argc, char **argv)
-{
-        if(argc)
-                yyin = fopen(argv[1],"r");
 
-        yylex();
-
-        return 0;
-}

@@ -1,8 +1,9 @@
 /* A Bison parser, made by GNU Bison 3.8.2.  */
 
-/* Skeleton interface for Bison GLR parsers in C
+/* Bison interface for Yacc-like parsers in C
 
-   Copyright (C) 2002-2015, 2018-2021 Free Software Foundation, Inc.
+   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2021 Free Software Foundation,
+   Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -30,6 +31,10 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
+/* DO NOT RELY ON FEATURES THAT ARE NOT DOCUMENTED in the manual,
+   especially those whose name start with YY_ or yy_.  They are
+   private implementation details that can be changed or removed.  */
+
 #ifndef YY_YY_BISON_TEST_TAB_H_INCLUDED
 # define YY_YY_BISON_TEST_TAB_H_INCLUDED
 /* Debug traces.  */
@@ -39,23 +44,6 @@
 #if YYDEBUG
 extern int yydebug;
 #endif
-/* "%code requires" blocks.  */
-#line 23 "bison_test.y"
-
-    #define _GNU_SOURCE
-    #include <stdio.h>
-    #include "node.h"
-
-    typedef struct driver {
-        const char *file;
-        FILE *fd;
-        node_t *root;
-        void *scanner;
-    } driver_t;
-
-    #define YYLTYPE loc_t
-
-#line 59 "bison_test.tab.h"
 
 /* Token kinds.  */
 #ifndef YYTOKENTYPE
@@ -67,11 +55,9 @@ extern int yydebug;
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
     ID = 258,                      /* "identifier"  */
-    STRING = 259,                  /* "string literal"  */
-    INTEGER = 260,                 /* "integer literal"  */
-    FLOAT = 261,                   /* "float literal"  */
-    TOK_FOO = 262,                 /* "foo"  */
-    TOK_BAR = 263                  /* "bar"  */
+    LETTER = 259,                  /* "string literal"  */
+    NUMBER = 260,                  /* "integer literal"  */
+    FLOAT = 261                    /* "float literal"  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -80,12 +66,11 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 38 "bison_test.y"
+#line 1 "bison_test.y"
 
-    const char *string;
-    node_t *node; 
+    char* string;
 
-#line 89 "bison_test.tab.h"
+#line 74 "bison_test.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -93,44 +78,11 @@ typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_DECLARED 1
 #endif
 
-/* Location type.  */
-#if ! defined YYLTYPE && ! defined YYLTYPE_IS_DECLARED
-typedef struct YYLTYPE YYLTYPE;
-struct YYLTYPE
-{
-  int first_line;
-  int first_column;
-  int last_line;
-  int last_column;
-};
-# define YYLTYPE_IS_DECLARED 1
-# define YYLTYPE_IS_TRIVIAL 1
-#endif
+
+extern YYSTYPE yylval;
 
 
+int yyparse (void);
 
-int yyparse (driver_t *driver, void *scanner);
-/* "%code provides" blocks.  */
-#line 92 "bison_test.y"
-
-    /* entry point for parsing files */
-    node_t *example_parse(const char *file);
-
-    /* shared error handler */
-    void yyerror(loc_t *loc, driver_t *driver, void*, const char *msg);
-
-    /* provided by lexer to circumvent lexer-header problems */
-    extern void example_lexer_begin(driver_t *driver);
-    extern void example_lexer_end(driver_t *driver);
-
-    /* NOTE: lexer protoype is in the parser-header to prevent
-     *       conflicting types.
-     */
-    #define YY_DECL int yylex \
-               (YYSTYPE* yylval_param, loc_t* yylloc_param , void *yyscanner)
-    extern YY_DECL;
-
-
-#line 135 "bison_test.tab.h"
 
 #endif /* !YY_YY_BISON_TEST_TAB_H_INCLUDED  */
