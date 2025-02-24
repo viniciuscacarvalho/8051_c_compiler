@@ -11,8 +11,6 @@ execute: all
 flex_:
 	@echo "[Make]Flex step"
 	flex flex_test.l
-	gcc lex.yy.c
-
 
 bison_:
 	@echo "[Make]Bison step"

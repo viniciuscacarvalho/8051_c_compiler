@@ -55,9 +55,47 @@ extern int yydebug;
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
     ID = 258,                      /* "identifier"  */
-    LETTER = 259,                  /* "string literal"  */
-    NUMBER = 260,                  /* "integer literal"  */
-    FLOAT = 261                    /* "float literal"  */
+    LETTER = 259,                  /* "letter"  */
+    NUMBER = 260,                  /* "integer"  */
+    BREAK = 261,                   /* "break"  */
+    CASE = 262,                    /* "case"  */
+    CHAR = 263,                    /* "char"  */
+    CONST = 264,                   /* "const"  */
+    CONTINUE = 265,                /* "continue"  */
+    DEFAULT = 266,                 /* "default"  */
+    DO = 267,                      /* "do"  */
+    DOUBLE = 268,                  /* "double"  */
+    ELSE = 269,                    /* "else"  */
+    ENUM = 270,                    /* "enum"  */
+    EXTERN = 271,                  /* "extern"  */
+    FLOAT = 272,                   /* "float"  */
+    FOR = 273,                     /* "for"  */
+    GOTO = 274,                    /* "goto"  */
+    IF = 275,                      /* "if"  */
+    INT = 276,                     /* "int"  */
+    LONG = 277,                    /* "long"  */
+    REGISTER = 278,                /* "register"  */
+    RETURN = 279,                  /* "return"  */
+    SHORT = 280,                   /* "short"  */
+    SIGNED = 281,                  /* "signed"  */
+    SIZEOF = 282,                  /* "sizeof"  */
+    STATIC = 283,                  /* "static"  */
+    STRUCT = 284,                  /* "struct"  */
+    SWITCH = 285,                  /* "switch"  */
+    TYPEDEF = 286,                 /* "typedef"  */
+    UNION = 287,                   /* "union"  */
+    UNSIGNED = 288,                /* "unsigned"  */
+    VOID = 289,                    /* "void"  */
+    VOLATILE = 290,                /* "volatile"  */
+    WHILE = 291,                   /* "while"  */
+    PACKED = 292,                  /* "__Packed"  */
+    OPEN_PAREN = 293,              /* "("  */
+    CLOSE_PAREN = 294,             /* ")"  */
+    OPEN_SQUARE = 295,             /* "["  */
+    CLOSE_SQUARE = 296,            /* "]"  */
+    OPEN_CURLY = 297,              /* "{"  */
+    CLOSE_CURLY = 298,             /* "}"  */
+    SEMICOLON = 299                /* ";"  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -70,7 +108,7 @@ union YYSTYPE
 
     char* string;
 
-#line 74 "bison_test.tab.h"
+#line 112 "bison_test.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

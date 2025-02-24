@@ -97,11 +97,49 @@ enum yysymbol_kind_t
   YYSYMBOL_YYerror = 1,                    /* error  */
   YYSYMBOL_YYUNDEF = 2,                    /* "invalid token"  */
   YYSYMBOL_ID = 3,                         /* "identifier"  */
-  YYSYMBOL_LETTER = 4,                     /* "string literal"  */
-  YYSYMBOL_NUMBER = 5,                     /* "integer literal"  */
-  YYSYMBOL_FLOAT = 6,                      /* "float literal"  */
-  YYSYMBOL_YYACCEPT = 7,                   /* $accept  */
-  YYSYMBOL_program = 8                     /* program  */
+  YYSYMBOL_LETTER = 4,                     /* "letter"  */
+  YYSYMBOL_NUMBER = 5,                     /* "integer"  */
+  YYSYMBOL_BREAK = 6,                      /* "break"  */
+  YYSYMBOL_CASE = 7,                       /* "case"  */
+  YYSYMBOL_CHAR = 8,                       /* "char"  */
+  YYSYMBOL_CONST = 9,                      /* "const"  */
+  YYSYMBOL_CONTINUE = 10,                  /* "continue"  */
+  YYSYMBOL_DEFAULT = 11,                   /* "default"  */
+  YYSYMBOL_DO = 12,                        /* "do"  */
+  YYSYMBOL_DOUBLE = 13,                    /* "double"  */
+  YYSYMBOL_ELSE = 14,                      /* "else"  */
+  YYSYMBOL_ENUM = 15,                      /* "enum"  */
+  YYSYMBOL_EXTERN = 16,                    /* "extern"  */
+  YYSYMBOL_FLOAT = 17,                     /* "float"  */
+  YYSYMBOL_FOR = 18,                       /* "for"  */
+  YYSYMBOL_GOTO = 19,                      /* "goto"  */
+  YYSYMBOL_IF = 20,                        /* "if"  */
+  YYSYMBOL_INT = 21,                       /* "int"  */
+  YYSYMBOL_LONG = 22,                      /* "long"  */
+  YYSYMBOL_REGISTER = 23,                  /* "register"  */
+  YYSYMBOL_RETURN = 24,                    /* "return"  */
+  YYSYMBOL_SHORT = 25,                     /* "short"  */
+  YYSYMBOL_SIGNED = 26,                    /* "signed"  */
+  YYSYMBOL_SIZEOF = 27,                    /* "sizeof"  */
+  YYSYMBOL_STATIC = 28,                    /* "static"  */
+  YYSYMBOL_STRUCT = 29,                    /* "struct"  */
+  YYSYMBOL_SWITCH = 30,                    /* "switch"  */
+  YYSYMBOL_TYPEDEF = 31,                   /* "typedef"  */
+  YYSYMBOL_UNION = 32,                     /* "union"  */
+  YYSYMBOL_UNSIGNED = 33,                  /* "unsigned"  */
+  YYSYMBOL_VOID = 34,                      /* "void"  */
+  YYSYMBOL_VOLATILE = 35,                  /* "volatile"  */
+  YYSYMBOL_WHILE = 36,                     /* "while"  */
+  YYSYMBOL_PACKED = 37,                    /* "__Packed"  */
+  YYSYMBOL_OPEN_PAREN = 38,                /* "("  */
+  YYSYMBOL_CLOSE_PAREN = 39,               /* ")"  */
+  YYSYMBOL_OPEN_SQUARE = 40,               /* "["  */
+  YYSYMBOL_CLOSE_SQUARE = 41,              /* "]"  */
+  YYSYMBOL_OPEN_CURLY = 42,                /* "{"  */
+  YYSYMBOL_CLOSE_CURLY = 43,               /* "}"  */
+  YYSYMBOL_SEMICOLON = 44,                 /* ";"  */
+  YYSYMBOL_YYACCEPT = 45,                  /* $accept  */
+  YYSYMBOL_program = 46                    /* program  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
 
@@ -109,12 +147,11 @@ typedef enum yysymbol_kind_t yysymbol_kind_t;
 /* Second part of user prologue.  */
 #line 5 "bison_test.y"
 
-    #define _GNU_SOURCE
     #include <stdio.h>
     int yylex();
     void yyerror(const char* msg);
 
-#line 118 "bison_test.tab.c"
+#line 155 "bison_test.tab.c"
 
 
 #ifdef short
@@ -438,19 +475,19 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  4
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   3
+#define YYLAST   6
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  7
+#define YYNTOKENS  45
 /* YYNNTS -- Number of nonterminals.  */
 #define YYNNTS  2
 /* YYNRULES -- Number of rules.  */
 #define YYNRULES  2
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  6
+#define YYNSTATES  8
 
 /* YYMAXUTOK -- Last valid token kind.  */
-#define YYMAXUTOK   261
+#define YYMAXUTOK   299
 
 
 /* YYTRANSLATE(TOKEN-NUM) -- Symbol number corresponding to TOKEN-NUM
@@ -490,14 +527,17 @@ static const yytype_int8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
-       5,     6
+       5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
+      15,    16,    17,    18,    19,    20,    21,    22,    23,    24,
+      25,    26,    27,    28,    29,    30,    31,    32,    33,    34,
+      35,    36,    37,    38,    39,    40,    41,    42,    43,    44
 };
 
 #if YYDEBUG
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    21,    21
+       0,    61,    61
 };
 #endif
 
@@ -514,8 +554,14 @@ static const char *yysymbol_name (yysymbol_kind_t yysymbol) YY_ATTRIBUTE_UNUSED;
 static const char *const yytname[] =
 {
   "\"end of input\"", "error", "\"invalid token\"", "\"identifier\"",
-  "\"string literal\"", "\"integer literal\"", "\"float literal\"",
-  "$accept", "program", YY_NULLPTR
+  "\"letter\"", "\"integer\"", "\"break\"", "\"case\"", "\"char\"",
+  "\"const\"", "\"continue\"", "\"default\"", "\"do\"", "\"double\"",
+  "\"else\"", "\"enum\"", "\"extern\"", "\"float\"", "\"for\"", "\"goto\"",
+  "\"if\"", "\"int\"", "\"long\"", "\"register\"", "\"return\"",
+  "\"short\"", "\"signed\"", "\"sizeof\"", "\"static\"", "\"struct\"",
+  "\"switch\"", "\"typedef\"", "\"union\"", "\"unsigned\"", "\"void\"",
+  "\"volatile\"", "\"while\"", "\"__Packed\"", "\"(\"", "\")\"", "\"[\"",
+  "\"]\"", "\"{\"", "\"}\"", "\";\"", "$accept", "program", YY_NULLPTR
 };
 
 static const char *
@@ -525,7 +571,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-5)
+#define YYPACT_NINF (-38)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -539,7 +585,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-      -3,    -4,     2,     0,    -5,    -5
+     -36,   -37,     2,    -2,   -38,     0,     1,   -38
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -547,13 +593,13 @@ static const yytype_int8 yypact[] =
    means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
-       0,     0,     0,     0,     1,     2
+       0,     0,     0,     0,     1,     0,     0,     2
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-      -5,    -5
+     -38,   -38
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
@@ -567,31 +613,31 @@ static const yytype_int8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-       1,     3,     4,     5
+       1,     3,     4,     5,     6,     0,     7
 };
 
 static const yytype_int8 yycheck[] =
 {
-       3,     5,     0,     3
+      36,    38,     0,     5,     4,    -1,     5
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
    state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,     3,     8,     5,     0,     3
+       0,    36,    46,    38,     0,     5,     4,     5
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
-       0,     7,     8
+       0,    45,    46
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
-       0,     2,     3
+       0,     2,     5
 };
 
 
@@ -1054,14 +1100,14 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-  case 2: /* program: "identifier" "integer literal" "identifier"  */
-#line 21 "bison_test.y"
-                      {printf("IDENT NUMBER IDENT \n");}
-#line 1061 "bison_test.tab.c"
+  case 2: /* program: "while" "(" "integer" "letter" "integer"  */
+#line 61 "bison_test.y"
+                                                {printf("while \n");}
+#line 1107 "bison_test.tab.c"
     break;
 
 
-#line 1065 "bison_test.tab.c"
+#line 1111 "bison_test.tab.c"
 
       default: break;
     }
@@ -1254,13 +1300,14 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 22 "bison_test.y"
+#line 65 "bison_test.y"
 
 void yyerror(const char *msg)
 {
-    printf("%s error", msg);
+    printf("%s\n", msg);
 }
 int main(int argc, char **argv)
 {
     yyparse();
+    return 0;
 }

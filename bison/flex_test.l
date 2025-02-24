@@ -47,13 +47,14 @@ _close_square   "]"
 _open_curly     "{"
 _close_curly    "}"
 _semicolon      ";"
-_float_number  [0-9]*\.[0-9]+
+
 
 
 _digit          [0-9]
+_float_number  [0-9]*\.[0-9]+
 _number         {_digit}+
 _letter         [a-zA-Z]
-_indentifier    {_letter}+
+_identifier     {_letter}({_letter}|{_digit})*
 _newline        \n
 _white_space    [ \t]+
 
@@ -61,51 +62,50 @@ _white_space    [ \t]+
 
 
 
-{_break}        {printf("%s break\n", yytext);}
-{_case}         {printf("%s case\n", yytext);}
-{_char}         {printf("%s char\n", yytext);}
-{_const}        {printf("%s const\n", yytext);}
-{_continue}     {printf("%s continue\n", yytext);}
-{_default}      {printf("%s default\n", yytext);}
-{_do}           {printf("%s do\n", yytext);}
-{_double}       {printf("%s double\n", yytext);} 
-{_else}         {printf("%s else\n", yytext);}
-{_enum}         {printf("%s enum\n", yytext);}
-{_extern}       {printf("%s extern\n", yytext);}
-{_float}        {printf("%s float\n", yytext);}
-{_for}          {printf("%s for\n", yytext);}
-{_goto}         {printf("%s goto\n", yytext);}
-{_if}           {printf("%s if\n", yytext);}
-{_int}          {printf("%s int\n", yytext);}
-{_long}         {printf("%s long\n", yytext);}
-{_register}     {printf("%s register\n", yytext);}
-{_return}       {printf("%s return\n", yytext);}
-{_short}        {printf("%s short\n", yytext);}
-{_signed}       {printf("%s signed\n", yytext);}
-{_sizeof}       {printf("%s sizeof\n", yytext);}
-{_static}       {printf("%s static\n", yytext);}
-{_struct}       {printf("%s struct\n", yytext);}
-{_switch}       {printf("%s switch\n", yytext);}
-{_typedef}      {printf("%s typedef\n", yytext);}
-{_union}        {printf("%s union\n", yytext);}
-{_unsigned}     {printf("%s unsigned\n", yytext);}
-{_void}         {printf("%s void\n", yytext);}
-{_volatile}     {printf("%s volatile\n", yytext);}
-{_while}        {printf("%s while\n", yytext);}
-{__Packed}      {printf("%s __Packed\n", yytext);}
+{_break}        { return BREAK; }
+{_case}         { return CASE; }
+{_char}         { return CHAR; }
+{_const}        { return CONST; }
+{_continue}     { return CONTINUE; }
+{_default}      { return DEFAULT; }
+{_do}           { return DO; }
+{_double}       { return DOUBLE; }
+{_else}         { return ELSE; }
+{_enum}         { return ENUM; }
+{_extern}       { return EXTERN; }
+{_float}        { return FLOAT; }
+{_for}          { return FOR; }
+{_goto}         { return GOTO; }
+{_if}           { return IF; }
+{_int}          { return INT; }
+{_long}         { return LONG; }
+{_register}     { return REGISTER; }
+{_return}       { return RETURN; }
+{_short}        { return SHORT; }
+{_signed}       { return SIGNED; }
+{_sizeof}       { return SIZEOF; }
+{_static}       { return STATIC; }
+{_struct}       { return STRUCT; }
+{_switch}       { return SWITCH; }
+{_typedef}      { return TYPEDEF; }
+{_union}        { return UNION; }
+{_unsigned}     { return UNSIGNED; }
+{_void}         { return VOID; }
+{_volatile}     { return VOLATILE; }
+{_while}        { return WHILE; }
+{__Packed}       { return PACKED; }
 
-
-{_open_paren}   {printf("%s (\n", yytext);}
-{_close_paren}  {printf("%s )\n", yytext);}
-{_open_square}  {printf("%s [\n", yytext);}
-{_close_square} {printf("%s ]\n", yytext);}
-{_open_curly}   {printf("%s {\n", yytext);}
-{_close_curly}  {printf("%s }\n", yytext);}
-{_semicolon}    {printf("%s ;\n",yytext);}
+{_open_paren}    { return OPEN_PAREN; }
+{_close_paren}   { return CLOSE_PAREN; }
+{_open_square}   { return OPEN_SQUARE; }
+{_close_square}  { return CLOSE_SQUARE; }
+{_open_curly}    { return OPEN_CURLY; }
+{_close_curly}   { return CLOSE_CURLY; }
+{_semicolon}     { return SEMICOLON; }
 
 {_number}       {return NUMBER;}
 {_letter}       {return LETTER;}
-{_indentifier}  {return ID;}
+{_identifier}  {return ID;}
 {_white_space}
 {_newline}
 <<EOF>> {return 0;}

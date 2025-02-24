@@ -3,7 +3,6 @@
 }
 
 %{
-    #define _GNU_SOURCE
     #include <stdio.h>
     int yylex();
     void yyerror(const char* msg);
@@ -13,18 +12,63 @@
 
 %token          TOK_EOF     0       "end of input"
 %token <string> ID                  "identifier"
-%token <string> LETTER              "string literal"
-%token <string> NUMBER             "integer literal"
-%token <string> FLOAT               "float literal"
+%token <string> LETTER              "letter"
+%token <string> NUMBER             "integer"
+
+
+%token BREAK       "break"
+%token CASE        "case"
+%token CHAR        "char"
+%token CONST       "const"
+%token CONTINUE    "continue"
+%token DEFAULT     "default"
+%token DO          "do"
+%token DOUBLE      "double"
+%token ELSE        "else"
+%token ENUM        "enum"
+%token EXTERN      "extern"
+%token FLOAT       "float"
+%token FOR         "for"
+%token GOTO        "goto"
+%token IF          "if"
+%token INT         "int"
+%token LONG        "long"
+%token REGISTER    "register"
+%token RETURN      "return"
+%token SHORT       "short"
+%token SIGNED      "signed"
+%token SIZEOF      "sizeof"
+%token STATIC      "static"
+%token STRUCT      "struct"
+%token SWITCH      "switch"
+%token TYPEDEF     "typedef"
+%token UNION       "union"
+%token UNSIGNED    "unsigned"
+%token VOID        "void"
+%token VOLATILE    "volatile"
+%token WHILE       "while"
+%token PACKED      "__Packed"
+
+%token OPEN_PAREN    "("
+%token CLOSE_PAREN   ")"
+%token OPEN_SQUARE   "["
+%token CLOSE_SQUARE  "]"
+%token OPEN_CURLY    "{"
+%token CLOSE_CURLY   "}"
+%token SEMICOLON     ";"
 
 %% /*program */
-program: ID NUMBER ID {printf("IDENT NUMBER IDENT \n");}
+program: WHILE OPEN_PAREN NUMBER LETTER NUMBER  {printf("while \n");}
+        
+
+
 %%
 void yyerror(const char *msg)
 {
-    printf("%s error", msg);
+    printf("%s\n", msg);
 }
 int main(int argc, char **argv)
 {
     yyparse();
+    return 0;
 }

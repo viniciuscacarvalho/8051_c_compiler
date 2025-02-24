@@ -416,7 +416,7 @@ static const YY_CHAR yy_ec[256] =
 
 static const YY_CHAR yy_meta[39] =
     {   0,
-        1,    1,    1,    1,    1,    1,    1,    2,    2,    1,
+        1,    1,    1,    1,    1,    2,    1,    2,    2,    1,
         1,    1,    2,    2,    2,    2,    2,    2,    2,    2,
         2,    2,    2,    2,    2,    2,    2,    2,    2,    2,
         2,    2,    2,    2,    2,    2,    1,    1
@@ -758,7 +758,7 @@ YY_DECL
 		}
 
 	{
-#line 60 "flex_test.l"
+#line 61 "flex_test.l"
 
 
 
@@ -822,198 +822,198 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 64 "flex_test.l"
-{printf("%s break\n", yytext);}
+#line 65 "flex_test.l"
+{ return BREAK; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 65 "flex_test.l"
-{printf("%s case\n", yytext);}
+#line 66 "flex_test.l"
+{ return CASE; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 66 "flex_test.l"
-{printf("%s char\n", yytext);}
+#line 67 "flex_test.l"
+{ return CHAR; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 67 "flex_test.l"
-{printf("%s const\n", yytext);}
+#line 68 "flex_test.l"
+{ return CONST; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 68 "flex_test.l"
-{printf("%s continue\n", yytext);}
+#line 69 "flex_test.l"
+{ return CONTINUE; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 69 "flex_test.l"
-{printf("%s default\n", yytext);}
+#line 70 "flex_test.l"
+{ return DEFAULT; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 70 "flex_test.l"
-{printf("%s do\n", yytext);}
+#line 71 "flex_test.l"
+{ return DO; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 71 "flex_test.l"
-{printf("%s double\n", yytext);} 
+#line 72 "flex_test.l"
+{ return DOUBLE; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 72 "flex_test.l"
-{printf("%s else\n", yytext);}
+#line 73 "flex_test.l"
+{ return ELSE; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 73 "flex_test.l"
-{printf("%s enum\n", yytext);}
+#line 74 "flex_test.l"
+{ return ENUM; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 74 "flex_test.l"
-{printf("%s extern\n", yytext);}
+#line 75 "flex_test.l"
+{ return EXTERN; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 75 "flex_test.l"
-{printf("%s float\n", yytext);}
+#line 76 "flex_test.l"
+{ return FLOAT; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 76 "flex_test.l"
-{printf("%s for\n", yytext);}
+#line 77 "flex_test.l"
+{ return FOR; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 77 "flex_test.l"
-{printf("%s goto\n", yytext);}
+#line 78 "flex_test.l"
+{ return GOTO; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 78 "flex_test.l"
-{printf("%s if\n", yytext);}
+#line 79 "flex_test.l"
+{ return IF; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 79 "flex_test.l"
-{printf("%s int\n", yytext);}
+#line 80 "flex_test.l"
+{ return INT; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 80 "flex_test.l"
-{printf("%s long\n", yytext);}
+#line 81 "flex_test.l"
+{ return LONG; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 81 "flex_test.l"
-{printf("%s register\n", yytext);}
+#line 82 "flex_test.l"
+{ return REGISTER; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 82 "flex_test.l"
-{printf("%s return\n", yytext);}
+#line 83 "flex_test.l"
+{ return RETURN; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 83 "flex_test.l"
-{printf("%s short\n", yytext);}
+#line 84 "flex_test.l"
+{ return SHORT; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 84 "flex_test.l"
-{printf("%s signed\n", yytext);}
+#line 85 "flex_test.l"
+{ return SIGNED; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 85 "flex_test.l"
-{printf("%s sizeof\n", yytext);}
+#line 86 "flex_test.l"
+{ return SIZEOF; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 86 "flex_test.l"
-{printf("%s static\n", yytext);}
+#line 87 "flex_test.l"
+{ return STATIC; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 87 "flex_test.l"
-{printf("%s struct\n", yytext);}
+#line 88 "flex_test.l"
+{ return STRUCT; }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 88 "flex_test.l"
-{printf("%s switch\n", yytext);}
+#line 89 "flex_test.l"
+{ return SWITCH; }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 89 "flex_test.l"
-{printf("%s typedef\n", yytext);}
+#line 90 "flex_test.l"
+{ return TYPEDEF; }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 90 "flex_test.l"
-{printf("%s union\n", yytext);}
+#line 91 "flex_test.l"
+{ return UNION; }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 91 "flex_test.l"
-{printf("%s unsigned\n", yytext);}
+#line 92 "flex_test.l"
+{ return UNSIGNED; }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 92 "flex_test.l"
-{printf("%s void\n", yytext);}
+#line 93 "flex_test.l"
+{ return VOID; }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 93 "flex_test.l"
-{printf("%s volatile\n", yytext);}
+#line 94 "flex_test.l"
+{ return VOLATILE; }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 94 "flex_test.l"
-{printf("%s while\n", yytext);}
+#line 95 "flex_test.l"
+{ return WHILE; }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 95 "flex_test.l"
-{printf("%s __Packed\n", yytext);}
+#line 96 "flex_test.l"
+{ return PACKED; }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
 #line 98 "flex_test.l"
-{printf("%s (\n", yytext);}
+{ return OPEN_PAREN; }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
 #line 99 "flex_test.l"
-{printf("%s )\n", yytext);}
+{ return CLOSE_PAREN; }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
 #line 100 "flex_test.l"
-{printf("%s [\n", yytext);}
+{ return OPEN_SQUARE; }
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
 #line 101 "flex_test.l"
-{printf("%s ]\n", yytext);}
+{ return CLOSE_SQUARE; }
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
 #line 102 "flex_test.l"
-{printf("%s {\n", yytext);}
+{ return OPEN_CURLY; }
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
 #line 103 "flex_test.l"
-{printf("%s }\n", yytext);}
+{ return CLOSE_CURLY; }
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
 #line 104 "flex_test.l"
-{printf("%s ;\n",yytext);}
+{ return SEMICOLON; }
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
