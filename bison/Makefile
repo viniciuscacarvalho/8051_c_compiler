@@ -16,5 +16,6 @@ flex_:
 
 bison_:
 	@echo "[Make]Bison step"
-
+	bison -t -d -v bison_test.y
+	g++ lex.yy.c bison_test.tab.c 
 #nothing yet :)

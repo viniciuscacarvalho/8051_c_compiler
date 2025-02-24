@@ -1,6 +1,7 @@
 
 %{
         #include <stdlib.h>
+        #include "y.tab.h"
 %}
 
 
@@ -48,12 +49,12 @@ _close_curly    "}"
 
 
 _digit          [0-9]
-_number         {_digit}+
+_number         _digit+
 _letter         [a-zA-Z]
-_indentifier    {_letter}+
+_indentifier    _letter+
 _newline        \n
 _white_space    [ \t]+
-_end_of_file    <<EOF>>
+_end_of_file    EOF
 
 %%
 
@@ -104,15 +105,14 @@ _end_of_file    <<EOF>>
 
 {_number}       {printf("%s number\n", yytext);}
 {_letter}       {printf("%s letter\n", yytext);}
-{_indentifier}  {printf("%s indentifier\n", yytext);}
 {_white_space}
 {_newline}
-<<EOF>> {printf("FIM \n"); return 0;}
-.              {printf("%s ignored\n", yytext);}
+.               {printf("%s ignored\n", yytext);}
+{_end_of_file}  {return 0;}
 
 %%
 
-int yywrap(){return 1;}
+int yywrap(){}
 
 int main(int argc, char **argv)
 {

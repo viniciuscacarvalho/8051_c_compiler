@@ -5,7 +5,7 @@
 %defines
 
 /* Verbose error messages */
-%define parse.error verbose
+%error-verbose
 
 /* Enable location tracking */
 %locations
@@ -23,7 +23,7 @@
 %code requires {
     #define _GNU_SOURCE
     #include <stdio.h>
-    #include "node.h
+    #include "node.h"
 
     typedef struct driver {
         const char *file;
@@ -152,9 +152,7 @@ OptBar
     ;
 
 %% /* Footer */
-%% /*program */
-program: IDENT NUMBER IDENT {printf("IDENT NUMBER IDENT NUMBER\n");}
-%%
+
 void yyerror(loc_t *loc, driver_t *driver, void *scanner,  const char *msg)
 {
     (void) scanner;

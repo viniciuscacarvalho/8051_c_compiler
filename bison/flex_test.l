@@ -1,6 +1,7 @@
 
 %{
         #include <stdlib.h>
+        #include "bison_test.tab.h"
 %}
 
 
@@ -53,13 +54,11 @@ _letter         [a-zA-Z]
 _indentifier    {_letter}+
 _newline        \n
 _white_space    [ \t]+
-_end_of_file    <<EOF>>
 
 %%
 
 
 
-{_auto}         {printf("%s auto\n", yytext);}
 {_break}        {printf("%s break\n", yytext);}
 {_case}         {printf("%s case\n", yytext);}
 {_char}         {printf("%s char\n", yytext);}
@@ -102,13 +101,13 @@ _end_of_file    <<EOF>>
 {_close_curly}  {printf("%s }\n", yytext);}
 
 
-{_number}       {printf("%s number\n", yytext);}
-{_letter}       {printf("%s letter\n", yytext);}
-{_indentifier}  {printf("%s indentifier\n", yytext);}
+{_number}       {return NUMBER;}
+{_letter}       {return LETTER;}
+{_indentifier}  {return IDENT;}
 {_white_space}
 {_newline}
-<<EOF>> {printf("FIM \n"); return 0;}
-.              {printf("%s ignored\n", yytext);}
+<<EOF>> {return 0;}
+.               {printf("%s ignored\n", yytext);}
 
 %%
 
