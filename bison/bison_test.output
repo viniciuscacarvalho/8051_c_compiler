@@ -1,6 +1,5 @@
 Terminals unused in grammar
 
-    "identifier"
     "break"
     "case"
     "char"
@@ -32,28 +31,30 @@ Terminals unused in grammar
     "void"
     "volatile"
     "__Packed"
-    ")"
     "["
     "]"
     "{"
     "}"
-    ";"
 
 
 Grammar
 
     0 $accept: program "end of input"
 
-    1 program: "while" "(" "integer" "letter" "integer"
+    1 program: "while" "(" expression ")" ";"
+
+    2 expression: "letter"
+    3           | "identifier"
+    4           | "integer"
 
 
 Terminals, with rules where they appear
 
     "end of input" (0) 0
     error (256)
-    "identifier" <string> (258)
-    "letter" <string> (259) 1
-    "integer" <string> (260) 1
+    "identifier" <string> (258) 3
+    "letter" <string> (259) 2
+    "integer" <string> (260) 4
     "break" (261)
     "case" (262)
     "char" (263)
@@ -87,12 +88,12 @@ Terminals, with rules where they appear
     "while" (291) 1
     "__Packed" (292)
     "(" (293) 1
-    ")" (294)
+    ")" (294) 1
     "[" (295)
     "]" (296)
     "{" (297)
     "}" (298)
-    ";" (299)
+    ";" (299) 1
 
 
 Nonterminals, with rules where they appear
@@ -102,6 +103,9 @@ Nonterminals, with rules where they appear
     program (46)
         on left: 1
         on right: 0
+    expression (47)
+        on left: 2 3 4
+        on right: 1
 
 
 State 0
@@ -115,7 +119,7 @@ State 0
 
 State 1
 
-    1 program: "while" • "(" "integer" "letter" "integer"
+    1 program: "while" • "(" expression ")" ";"
 
     "("  shift, and go to state 3
 
@@ -129,9 +133,13 @@ State 2
 
 State 3
 
-    1 program: "while" "(" • "integer" "letter" "integer"
+    1 program: "while" "(" • expression ")" ";"
 
-    "integer"  shift, and go to state 5
+    "identifier"  shift, and go to state 5
+    "letter"      shift, and go to state 6
+    "integer"     shift, and go to state 7
+
+    expression  go to state 8
 
 
 State 4
@@ -143,20 +151,41 @@ State 4
 
 State 5
 
-    1 program: "while" "(" "integer" • "letter" "integer"
+    3 expression: "identifier" •
 
-    "letter"  shift, and go to state 6
+    $default  reduce using rule 3 (expression)
 
 
 State 6
 
-    1 program: "while" "(" "integer" "letter" • "integer"
+    2 expression: "letter" •
 
-    "integer"  shift, and go to state 7
+    $default  reduce using rule 2 (expression)
 
 
 State 7
 
-    1 program: "while" "(" "integer" "letter" "integer" •
+    4 expression: "integer" •
+
+    $default  reduce using rule 4 (expression)
+
+
+State 8
+
+    1 program: "while" "(" expression • ")" ";"
+
+    ")"  shift, and go to state 9
+
+
+State 9
+
+    1 program: "while" "(" expression ")" • ";"
+
+    ";"  shift, and go to state 10
+
+
+State 10
+
+    1 program: "while" "(" expression ")" ";" •
 
     $default  reduce using rule 1 (program)

@@ -58,8 +58,9 @@
 %token SEMICOLON     ";"
 
 %% /*program */
-program: WHILE OPEN_PAREN NUMBER LETTER NUMBER  {printf("while \n");}
-        
+program: WHILE OPEN_PAREN expression CLOSE_PAREN SEMICOLON  {printf("while(expression); \n");}
+
+expression: LETTER| ID | NUMBER
 
 
 %%

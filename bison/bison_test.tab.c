@@ -139,7 +139,8 @@ enum yysymbol_kind_t
   YYSYMBOL_CLOSE_CURLY = 43,               /* "}"  */
   YYSYMBOL_SEMICOLON = 44,                 /* ";"  */
   YYSYMBOL_YYACCEPT = 45,                  /* $accept  */
-  YYSYMBOL_program = 46                    /* program  */
+  YYSYMBOL_program = 46,                   /* program  */
+  YYSYMBOL_expression = 47                 /* expression  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
 
@@ -151,7 +152,7 @@ typedef enum yysymbol_kind_t yysymbol_kind_t;
     int yylex();
     void yyerror(const char* msg);
 
-#line 155 "bison_test.tab.c"
+#line 156 "bison_test.tab.c"
 
 
 #ifdef short
@@ -475,16 +476,16 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  4
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   6
+#define YYLAST   7
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  45
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  2
+#define YYNNTS  3
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  2
+#define YYNRULES  5
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  8
+#define YYNSTATES  11
 
 /* YYMAXUTOK -- Last valid token kind.  */
 #define YYMAXUTOK   299
@@ -537,7 +538,7 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    61,    61
+       0,    61,    61,    63,    63,    63
 };
 #endif
 
@@ -561,7 +562,7 @@ static const char *const yytname[] =
   "\"short\"", "\"signed\"", "\"sizeof\"", "\"static\"", "\"struct\"",
   "\"switch\"", "\"typedef\"", "\"union\"", "\"unsigned\"", "\"void\"",
   "\"volatile\"", "\"while\"", "\"__Packed\"", "\"(\"", "\")\"", "\"[\"",
-  "\"]\"", "\"{\"", "\"}\"", "\";\"", "$accept", "program", YY_NULLPTR
+  "\"]\"", "\"{\"", "\"}\"", "\";\"", "$accept", "program", "expression", YY_NULLPTR
 };
 
 static const char *
@@ -571,7 +572,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-38)
+#define YYPACT_NINF (-39)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -585,7 +586,8 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-     -36,   -37,     2,    -2,   -38,     0,     1,   -38
+     -33,   -34,     5,    -3,   -39,   -39,   -39,   -39,   -32,   -38,
+     -39
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -593,19 +595,20 @@ static const yytype_int8 yypact[] =
    means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
-       0,     0,     0,     0,     1,     0,     0,     2
+       0,     0,     0,     0,     1,     4,     3,     5,     0,     0,
+       2
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -38,   -38
+     -39,   -39,   -39
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-       0,     2
+       0,     2,     8
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -613,31 +616,32 @@ static const yytype_int8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-       1,     3,     4,     5,     6,     0,     7
+       5,     6,     7,     1,     3,     4,    10,     9
 };
 
 static const yytype_int8 yycheck[] =
 {
-      36,    38,     0,     5,     4,    -1,     5
+       3,     4,     5,    36,    38,     0,    44,    39
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
    state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,    36,    46,    38,     0,     5,     4,     5
+       0,    36,    46,    38,     0,     3,     4,     5,    47,    39,
+      44
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
-       0,    45,    46
+       0,    45,    46,    47,    47,    47
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
-       0,     2,     5
+       0,     2,     5,     1,     1,     1
 };
 
 
@@ -1100,14 +1104,14 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-  case 2: /* program: "while" "(" "integer" "letter" "integer"  */
+  case 2: /* program: "while" "(" expression ")" ";"  */
 #line 61 "bison_test.y"
-                                                {printf("while \n");}
-#line 1107 "bison_test.tab.c"
+                                                            {printf("while(expression); \n");}
+#line 1111 "bison_test.tab.c"
     break;
 
 
-#line 1111 "bison_test.tab.c"
+#line 1115 "bison_test.tab.c"
 
       default: break;
     }
@@ -1300,7 +1304,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 65 "bison_test.y"
+#line 66 "bison_test.y"
 
 void yyerror(const char *msg)
 {
