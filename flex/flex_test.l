@@ -4,7 +4,6 @@
 %}
 
 
-_auto           "auto"
 _break          "break"
 _case           "case"
 _char           "char"
@@ -45,21 +44,25 @@ _open_square    "["
 _close_square   "]"
 _open_curly     "{"
 _close_curly    "}"
-
+_semicolon      ";"
+_asterisk       "*"
+_plus           "+"
+_minus          "-"
+_bit_and            "&"
+_bit_xor            "^"
+_bit_or             "|"
 
 _digit          [0-9]
 _number         {_digit}+
-_letter         [a-zA-Z]
-_indentifier    {_letter}+
+_letter         [a-zA-Z_]
+_indentifier    {_letter}({_letter}|{_digit})*
 _newline        \n
 _white_space    [ \t]+
-_end_of_file    <<EOF>>
 
 %%
 
 
 
-{_auto}         {printf("%s auto\n", yytext);}
 {_break}        {printf("%s break\n", yytext);}
 {_case}         {printf("%s case\n", yytext);}
 {_char}         {printf("%s char\n", yytext);}
@@ -100,15 +103,21 @@ _end_of_file    <<EOF>>
 {_close_square} {printf("%s ]\n", yytext);}
 {_open_curly}   {printf("%s {\n", yytext);}
 {_close_curly}  {printf("%s }\n", yytext);}
-
+{_semicolon}    {printf("%s semicolon\n", yytext);}
+{_asterisk}     {printf("%s asterisk\n",yytext);}
+{_plus}         {printf("%s plus\n",yytext);}
+{_minus}        {printf("%s minus\n",yytext);}
+{_bit_and}      {printf("%s bit_and\n",yytext);}
+{_bit_or}       {printf("%s bit_or\n",yytext);}
+{_bit_xor}      {printf("%s bit_xor\n",yytext);}
 
 {_number}       {printf("%s number\n", yytext);}
 {_letter}       {printf("%s letter\n", yytext);}
 {_indentifier}  {printf("%s indentifier\n", yytext);}
 {_white_space}
 {_newline}
-<<EOF>> {printf("FIM \n"); return 0;}
-.              {printf("%s ignored\n", yytext);}
+<<EOF>>         {printf("EOF \n"); return 0;}
+.               {printf("%s ignored\n", yytext);}
 
 %%
 
@@ -118,7 +127,6 @@ int main(int argc, char **argv)
 {
         if(argc)
                 yyin = fopen(argv[1],"r");
-
         yylex();
 
         return 0;
