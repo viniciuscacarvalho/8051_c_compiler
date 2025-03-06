@@ -48,9 +48,9 @@ _semicolon      ";"
 _asterisk       "*"
 _plus           "+"
 _minus          "-"
-_bit_and            "&"
-_bit_xor            "^"
-_bit_or             "|"
+_bit_and        "&"
+_bit_xor        "^"
+_bit_or         "|"
 
 _digit          [0-9]
 _number         {_digit}+

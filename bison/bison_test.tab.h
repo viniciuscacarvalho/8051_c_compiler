@@ -52,7 +52,7 @@ extern int yydebug;
   {
     YYEMPTY = -2,
     TOK_EOF = 0,                   /* "end of input"  */
-    YYerror = 256,                 /* error  */
+    YYerror = 256,                 /*  error  */
     YYUNDEF = 257,                 /* "invalid token"  */
     ID = 258,                      /* "identifier"  */
     LETTER = 259,                  /* "letter"  */
@@ -95,7 +95,45 @@ extern int yydebug;
     CLOSE_SQUARE = 296,            /* "]"  */
     OPEN_CURLY = 297,              /* "{"  */
     CLOSE_CURLY = 298,             /* "}"  */
-    SEMICOLON = 299                /* ";"  */
+    SEMICOLON = 299,               /* ";"  */
+    COMMA = 300,                   /* ","  */
+    DOT = 301,                     /* "."  */
+    ARROW = 302,                   /* "->"  */
+    PLUSPLUS = 303,                /* "++"  */
+    MINUSMINUS = 304,              /* "--"  */
+    PLUS = 305,                    /* "+"  */
+    MINUS = 306,                   /* "-"  */
+    LOGIC_NOT = 307,               /* "!"  */
+    LOGIC_AND = 308,               /* "&&"  */
+    LOGIC_OR = 309,                /* "||"  */
+    BIT_NOT = 310,                 /* "~"  */
+    BIT_AND = 311,                 /* "&"  */
+    BIT_OR = 312,                  /* "|"  */
+    BIT_XOR = 313,                 /* "^"  */
+    TERNARY = 314,                 /* "?"  */
+    ASTERISC = 315,                /* "*"  */
+    RIGHT_SLASH = 316,             /* "/"  */
+    PERCENT = 317,                 /* "%"  */
+    RIGHT_SHIFT = 318,             /* ">>"  */
+    LEFT_SHIFT = 319,              /* "<<"  */
+    GRATER_THAN = 320,             /* ">"  */
+    GRATER_THAN_EQUAL = 321,       /* ">="  */
+    SMALLER_THAN = 322,            /* "<"  */
+    SMALLER_THAN_EQUAL = 323,      /* "<="  */
+    EQUAL = 324,                   /* "=="  */
+    DIFFERENT = 325,               /* "!="  */
+    ASSIGN = 326,                  /* "="  */
+    ASSIGN_PLUS = 327,             /* "+="  */
+    ASSIGN_MINUS = 328,            /* "-="  */
+    ASSIGN_MULT = 329,             /* "*="  */
+    ASSIGN_DIV = 330,              /* "/="  */
+    ASSIGN_PERCENT = 331,          /* "%="  */
+    ASSIGN_AND = 332,              /* "&="  */
+    ASSIGN_OR = 333,               /* "|="  */
+    ASSIGN_XOR = 334,              /* "^="  */
+    ASSIGN_LEFT_SHIFT = 335,       /* "<<="  */
+    ASSIGN_RIGHT_SHIFT = 336,      /* ">>="  */
+    TWO_DOTS = 337                 /* ":"  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif

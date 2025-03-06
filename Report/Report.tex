@@ -1,6 +1,6 @@
 \documentclass[11pt]{article}
 
-\usepackage[a4paper, top=1in, bottom=1in, left=1in, right=1in, headheight=60pt, headsep=5pt]{geometry} 
+\usepackage[a4paper, top=1in, bottom=1in, left=1in, right=1in,, headheight=1in, headsep=5pt]{geometry} 
 
 \usepackage{graphicx} 
 \usepackage{fancyhdr} 
@@ -9,19 +9,30 @@
 \author{lerolero}
 
 
+
+\renewcommand{\contentsname}{Index} % Change ToC label
+%\renewcommand{\headrulewidth}{0pt} % Remove header line
+\renewcommand{\footrulewidth}{0.1pt} % Remove header line
+% Redefine \chaptermark to avoid chapter title in \leftmark
+
+
 \pagestyle{fancy} % Enable custom headers/footers
 \fancyhf{} % Clear default header/footer
 \fancyfoot[R]{\newline\newline\thepage} % Centered footer with page number
 \fancyfoot[C]{A project on the master’s in industrial Electronics and Computers
 Engineering by the professor Adriano Tavares. 2024/2025} % Right-aligned footer
+
+\fancyhead[L]{\leftmark}
 \fancyhead[R]{
-    \includegraphics[width=0.17\textwidth]{assets/ENG-EN.png}  % Adjust the width as necessary
-    %\caption{This is a Header_image}
-    \label{fig:Header_image}
+    
+%\includegraphics[width=0.17\textwidth]{assets/ENG-EN.png}  % Adjust the width as necessary
+%\caption{This is a Header_image}
+%\label{fig:Header_image}
+%\includegraphics[width=0.17\textwidth]{assets/ESRG.png}  % Adjust the width as necessary
+%\caption{This is a Header_image}
+%\label{fig:ESRG_Logo_image}
 
 }
-\renewcommand{\headrulewidth}{0pt} % Remove header line
-
 
 \begin{document}
     \begin{titlepage}
@@ -36,6 +47,7 @@ Engineering by the professor Adriano Tavares. 2024/2025} % Right-aligned footer
        
         Master’s in Industrial Electronics and Computers Engineering
         \Large
+
         University of Minho
         %\huge
         \rule{\textwidth}{0.4pt}
@@ -55,6 +67,50 @@ Engineering by the professor Adriano Tavares. 2024/2025} % Right-aligned footer
 
     \newpage
     
+    \newpage
     \section{Project Plan}
+    \newpage
+    \subsection{Problem Statement and Analysis}
     
+    \subsection{State of the Art}
+    
+    \subsection{System Overview}
+    
+    \subsection{System Requirements and Constraints}
+    
+    \subsubsection{Functional Requirements}
+    
+    \subsubsection{Non-functional Requirements}
+    
+    \subsubsection{Technical Constraints}
+    
+    \subsubsection{Non-technical Constraints}
+    
+    \newpage
+    \section{Analysis}
+    
+    \subsection{Software Analysis}
+    
+    \subsection{Hardware Analysis}
+    
+    \subsection{System Events}
+    
+    \subsection{Use Case Diagram}
+    
+    \subsection{State Diagram}
+    
+    \subsection{Sequence Diagram}
+    
+    \newpage
+    \section{Design}
+    
+    \newpage
+    \section{Implementation}
+    
+    \newpage
+    \section{Gantt Diagram}
+    
+    \newpage
+    \section{Bibliografy}
+
 \end{document}
